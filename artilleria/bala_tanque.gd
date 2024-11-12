@@ -1,48 +1,65 @@
 extends Area2D
 
 @export var velocidad: float = 200.0
-@export var alcance: float = 300.0
+@export var alcance: float = 0.0  # Máxima distancia permitida para la bomba
 @export var poder_destruccion: int = 50
 @export var radio_destruccion: float = 50.0
 @export var desfase_posicion: float = 10.0  # Ajuste para que la bomba salga un poco adelante
+@export var altura_maxima: float = 5.0  # Altura máxima simulada
+
 
 # Variables internas
+var potencia: float = 0.0
 var distancia_recorrida: float = 0.0
 var direccion: Vector2 = Vector2.ZERO
 var tanque_padre: Node = null  # Referencia al nodo del tanque que disparó la bomba
 
 func _ready():
-	# Asegurarnos de que la bomba se inicie correctamente desde el tanque
-	#tanque_padre = get_parent()  # Obtener el nodo del tanque que disparó la bomba
-
-	# Conectamos la señal body_entered a la función correspondiente
 	connect("body_entered", Callable(self, "_on_body_entered"))
+	set_deferred("monitoring", false)  # Desactiva colisiones inicialmente
 
-# Método para lanzar la bomba en una dirección específica
-func lanzar_bomba(dir: Vector2):
-	direccion = dir.normalized()  # Normaliza la dirección del disparo
-	distancia_recorrida = 0.0     # Reinicia la distancia recorrida
-	#position = tanque_padre.position + direccion * desfase_posicion  # Posiciona la bomba ligeramente adelante
+func lanzar_bomba(dir: Vector2, potencia_disparo: float):
+	if potencia_disparo <= 0.0:
+		return  # Evitar valores negativos o cero
+	direccion = dir.normalized()
+	distancia_recorrida = 0.0
+	position += direccion * desfase_posicion
+	potencia = min(potencia_disparo, alcance)  # Limita la potencia al alcance máximo
 
-# Método para mover la bomba y verificar si alcanza el alcance máximo
 func _process(delta):
 	var desplazamiento = direccion * velocidad * delta
-	position += desplazamiento  # Actualiza la posición de la bomba en cada frame
+	position += desplazamiento
 	distancia_recorrida += desplazamiento.length()
 
-	# Si la bomba alcanza el alcance, explota
-	if distancia_recorrida >= alcance:
-		queue_free()  # Destruye la bomba cuando alcanza el alcance
+	# Simula la trayectoria parabólica de la bomba
+	var altura_actual = calcular_altura(distancia_recorrida, potencia)
+	set_scale(Vector2(0.1, 0.1) * (1 + altura_actual / altura_maxima))  # Ajusta la escala
 
-# Función llamada cuando un cuerpo entra en el área de la bomba
+	# Activa colisión cerca del final
+	if distancia_recorrida >= potencia - (radio_destruccion / 2):
+		set_deferred("monitoring", true)
+
+	# Si alcanza la distancia objetivo (potencia), explota
+	if distancia_recorrida >= potencia:
+		explotar()
+
+func calcular_altura(distancia, potencia) -> float:
+	var mitad_potencia = potencia / 2.0
+	if distancia <= mitad_potencia:
+		return lerp(0.0, altura_maxima, distancia / mitad_potencia)
+	else:
+		return lerp(altura_maxima, 0.0, (distancia - mitad_potencia) / mitad_potencia)
+
 func _on_body_entered(body):
-	print("La bomba ha tocado a: ", body.name)  # Depuración para ver qué cuerpo tocó la bomba
-	explotar(body)
+	if distancia_recorrida >= potencia - (radio_destruccion / 2):
+		if body.is_in_group("tanques") or body.is_in_group("enemigos"):
+			if body != tanque_padre:
+				body.recibir_dano(poder_destruccion)
 
-# Método para manejar la explosión de la bomba
-func explotar(body: Node):
-	# Asegurarse de que no se dañe al tanque que disparó la bomba
-	if body != tanque_padre and (body.is_in_group("tanques") or body.is_in_group("enemigos")):
-		body.recibir_dano(poder_destruccion)  # Llama a la función recibir_dano() del tanque o enemigo
+	explotar()
 
-	queue_free()  # Destruye la bomba después de la explosión
+
+func explotar():
+	# Aquí podrías añadir efectos de explosión (sonido, partículas, etc.)
+	emit_signal("bomba_explotada")  # Emitir señal al explotar
+	queue_free()  # Destruye la bomba
