@@ -5,7 +5,7 @@ extends Area2D
 @export var poder_destruccion: int = 50
 @export var radio_destruccion: float = 50.0
 @export var desfase_posicion: float = 10.0  # Ajuste para que la bomba salga un poco adelante
-@export var altura_maxima: float = 5.0  # Altura máxima simulada
+@export var altura_maxima: float = 1  # Altura máxima simulada
 
 
 # Variables internas

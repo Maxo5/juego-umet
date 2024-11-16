@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdh2hmpb4m8au"
-path="res://.godot/imported/tanque.webp-8d63cb2d32d4b8d10cc34353cab073e5.ctex"
+uid="uid://df0vsukluvmmw"
+path="res://.godot/imported/jeep_enemigo.png-3ff9cc15b46bad2ddb35f081a24bef80.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tanque.webp"
-dest_files=["res://.godot/imported/tanque.webp-8d63cb2d32d4b8d10cc34353cab073e5.ctex"]
+source_file="res://assets/jeep_enemigo.png"
+dest_files=["res://.godot/imported/jeep_enemigo.png-3ff9cc15b46bad2ddb35f081a24bef80.ctex"]
 
 [params]
 

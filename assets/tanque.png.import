@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdh2hmpb4m8au"
-path="res://.godot/imported/tanque.webp-8d63cb2d32d4b8d10cc34353cab073e5.ctex"
+uid="uid://btvsfvxlv2ff0"
+path="res://.godot/imported/tanque.png-4098cd06918365aa0970e5174c839a87.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tanque.webp"
-dest_files=["res://.godot/imported/tanque.webp-8d63cb2d32d4b8d10cc34353cab073e5.ctex"]
+source_file="res://assets/tanque.png"
+dest_files=["res://.godot/imported/tanque.png-4098cd06918365aa0970e5174c839a87.ctex"]
 
 [params]
 

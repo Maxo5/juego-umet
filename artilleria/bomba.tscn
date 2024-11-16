@@ -1,18 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://byssigamynxqw"]
 
-[ext_resource type="Script" path="res://artilleria/bala_tanque.gd" id="1_4wnwo"]
-[ext_resource type="Texture2D" uid="uid://dhphnudrsk7vn" path="res://assets/bala_tanque.png" id="1_su6u3"]
+[ext_resource type="Script" path="res://artilleria/bomba.gd" id="1_hg8dh"]
+[ext_resource type="Texture2D" uid="uid://dhphnudrsk7vn" path="res://assets/bala_tanque.png" id="2_xs8rh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_205ix"]
 
 [node name="bala_tanque_Area2D" type="Area2D"]
 scale = Vector2(0.235435, 0.299048)
-script = ExtResource("1_4wnwo")
+script = ExtResource("1_hg8dh")
 
 [node name="BalaTanque" type="Sprite2D" parent="."]
 position = Vector2(0, 9)
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("1_su6u3")
+texture = ExtResource("2_xs8rh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_205ix")
