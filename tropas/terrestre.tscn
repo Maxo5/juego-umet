@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://btvsfvxlv2ff0" path="res://assets/tanque.png" id="2_4x5aa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u2ott"]
-size = Vector2(201.75, 108)
+size = Vector2(106.392, 119.012)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ex3lr"]
 bg_color = Color(0.901961, 0.14902, 0.317647, 1)
@@ -14,20 +14,22 @@ rotation = 3.14159
 script = ExtResource("1_2yeue")
 
 [node name="Tanque" type="Sprite2D" parent="."]
-scale = Vector2(0.413461, 0.33427)
+position = Vector2(-77.5001, 30.9998)
+scale = Vector2(0.320604, 0.319271)
 texture = ExtResource("2_4x5aa")
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(-11, 3)
+position = Vector2(11, 2.00003)
+scale = Vector2(1.65163, 1.00001)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-33, -3)
+position = Vector2(-73.261, 26.9994)
 scale = Vector2(0.92, 1)
 shape = SubResource("RectangleShape2D_u2ott")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-42.1601, -2.00032)
-scale = Vector2(0.96, 1)
+position = Vector2(-108.113, 27.6878)
+scale = Vector2(1.48, 1)
 shape = SubResource("RectangleShape2D_u2ott")
 
 [node name="BarraPotencia" type="CanvasLayer" parent="."]

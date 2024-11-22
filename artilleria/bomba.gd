@@ -62,4 +62,15 @@ func _on_body_entered(body):
 func explotar():
 	# Aquí podrías añadir efectos de explosión (sonido, partículas, etc.)
 	emit_signal("bomba_explotada")  # Emitir señal al explotar
+	lanzar_explosion(position,radio_destruccion)
 	queue_free()  # Destruye la bomba
+
+
+
+func lanzar_explosion(posicion, poder):
+	var explosion_scene = preload("res://explosion.tscn").instantiate()
+	explosion_scene.position = posicion
+	get_tree().current_scene.add_child(explosion_scene)
+	print("poder",poder)
+	# Iniciar la explosión con el poder de la bomba
+	explosion_scene.iniciar_explosion(poder)

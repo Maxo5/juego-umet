@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhyj1nn6carfo"]
+[gd_scene load_steps=8 format=3 uid="uid://bhyj1nn6carfo"]
 
 [ext_resource type="PackedScene" uid="uid://glmw5ypv60gg" path="res://terrenos/terreno_uno.tscn" id="1_1myon"]
 [ext_resource type="PackedScene" uid="uid://ceuk0ndn2ki4n" path="res://tropas/terrestre.tscn" id="2_ccuho"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="3_ky8b5"]
 [ext_resource type="Texture2D" uid="uid://ckdgofravb1sd" path="res://assets/tanque_enemigo.png" id="4_8wogf"]
+[ext_resource type="Texture2D" uid="uid://dgw7vobmm76kh" path="res://assets/jeep.png" id="5_h8t62"]
+[ext_resource type="Script" path="res://tropas/jee.gd" id="5_tkvje"]
+[ext_resource type="Texture2D" uid="uid://df0vsukluvmmw" path="res://assets/jeep_enemigo.png" id="7_1gasu"]
 
 [node name="Node2D" type="Node2D"]
 scale = Vector2(1.02054, 0.392128)
@@ -16,34 +19,134 @@ scale = Vector2(1, 1.524)
 position = Vector2(-1100.39, 86.7064)
 scale = Vector2(1, 1.5)
 
-[node name="tanque" parent="." instance=ExtResource("2_ccuho")]
-position = Vector2(-196.954, 40.803)
-scale = Vector2(0.5, 1)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("3_ky8b5")
 
-[node name="tanque2" parent="." instance=ExtResource("2_ccuho")]
-position = Vector2(201.854, 379.978)
-scale = Vector2(0.5, 1)
-
-[node name="tanqueEnemigo" parent="." instance=ExtResource("2_ccuho")]
-position = Vector2(-1360.06, -30.6022)
-scale = Vector2(-0.5, 1)
-
-[node name="Tanque" parent="tanqueEnemigo" index="0"]
-position = Vector2(-3.22293, -7.65056)
-texture = ExtResource("4_8wogf")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="tanqueEnemigo2" parent="." instance=ExtResource("2_ccuho")]
 position = Vector2(-1376.72, 379.978)
-scale = Vector2(-0.5, 1)
+rotation = -2.53518e-06
+scale = Vector2(0.5, -1)
 
 [node name="Tanque" parent="tanqueEnemigo2" index="0"]
 position = Vector2(-3.22293, -7.65056)
 texture = ExtResource("4_8wogf")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CollisionShape2D" parent="tanqueEnemigo2/Area2D" index="0"]
+position = Vector2(-24.4609, -9.65043)
 
-[editable path="tanqueEnemigo"]
+[node name="CollisionShape2D" parent="tanqueEnemigo2" index="2"]
+position = Vector2(-31.3604, -5.10032)
+
+[node name="tanqueEnemigo" parent="." instance=ExtResource("2_ccuho")]
+position = Vector2(-1423.76, -155.561)
+rotation = -2.53518e-06
+scale = Vector2(0.5, -1)
+
+[node name="Tanque" parent="tanqueEnemigo" index="0"]
+position = Vector2(-3.22293, -7.65056)
+texture = ExtResource("4_8wogf")
+
+[node name="CollisionShape2D" parent="tanqueEnemigo/Area2D" index="0"]
+position = Vector2(-25.6451, -7.1003)
+
+[node name="CollisionShape2D" parent="tanqueEnemigo" index="2"]
+position = Vector2(-29.3965, -10.2007)
+
+[node name="tanque" parent="." instance=ExtResource("2_ccuho")]
+position = Vector2(-335.117, -28.0521)
+scale = Vector2(0.5, 1)
+
+[node name="tanque2" parent="." instance=ExtResource("2_ccuho")]
+position = Vector2(-339.036, -237.167)
+scale = Vector2(0.5, 1)
+
+[node name="jeep" parent="." instance=ExtResource("2_ccuho")]
+position = Vector2(-388.03, 346.826)
+script = ExtResource("5_tkvje")
+
+[node name="Tanque" parent="jeep" index="0"]
+position = Vector2(-64.2825, -47.1413)
+scale = Vector2(0.0889644, 0.232086)
+texture = ExtResource("5_h8t62")
+
+[node name="Area2D" parent="jeep" index="1"]
+position = Vector2(-38.215, -30.6023)
+scale = Vector2(0.901939, 1.21299)
+
+[node name="CollisionShape2D" parent="jeep/Area2D" index="0"]
+position = Vector2(-26.3151, -13.803)
+
+[node name="CollisionShape2D" parent="jeep" index="2"]
+position = Vector2(-66.6312, -43.3534)
+scale = Vector2(0.96, 1)
+
+[node name="jeep2" parent="." instance=ExtResource("2_ccuho")]
+position = Vector2(-388.03, 165.762)
+script = ExtResource("5_tkvje")
+
+[node name="Tanque" parent="jeep2" index="0"]
+position = Vector2(-64.2825, -47.1413)
+scale = Vector2(0.0889644, 0.232086)
+texture = ExtResource("5_h8t62")
+
+[node name="Area2D" parent="jeep2" index="1"]
+position = Vector2(-38.215, -30.6023)
+scale = Vector2(0.901939, 1.21299)
+
+[node name="CollisionShape2D" parent="jeep2/Area2D" index="0"]
+position = Vector2(-26.3151, -13.803)
+
+[node name="CollisionShape2D" parent="jeep2" index="2"]
+position = Vector2(-66.6312, -43.3534)
+scale = Vector2(0.96, 1)
+
+[node name="jeepEnemigo" parent="." instance=ExtResource("2_ccuho")]
+position = Vector2(-1260.12, 214.216)
+rotation = 0.0
+script = ExtResource("5_tkvje")
+
+[node name="Tanque" parent="jeepEnemigo" index="0"]
+position = Vector2(-64.2825, -47.1413)
+scale = Vector2(0.0889644, 0.232086)
+texture = ExtResource("7_1gasu")
+
+[node name="Area2D" parent="jeepEnemigo" index="1"]
+position = Vector2(-38.215, -30.6023)
+scale = Vector2(0.901939, 1.21299)
+
+[node name="CollisionShape2D" parent="jeepEnemigo/Area2D" index="0"]
+position = Vector2(-26.3151, -13.803)
+
+[node name="CollisionShape2D" parent="jeepEnemigo" index="2"]
+position = Vector2(-66.6312, -43.3534)
+scale = Vector2(0.96, 1)
+
+[node name="jeepEnemigo2" parent="." instance=ExtResource("2_ccuho")]
+position = Vector2(-1111.18, -198.915)
+rotation = 0.0
+script = ExtResource("5_tkvje")
+
+[node name="Tanque" parent="jeepEnemigo2" index="0"]
+position = Vector2(-62.7098, -53.5537)
+scale = Vector2(0.0889644, 0.232086)
+texture = ExtResource("7_1gasu")
+
+[node name="Area2D" parent="jeepEnemigo2" index="1"]
+position = Vector2(-38.215, -30.6023)
+scale = Vector2(0.901939, 1.21299)
+
+[node name="CollisionShape2D" parent="jeepEnemigo2/Area2D" index="0"]
+position = Vector2(-26.3151, -13.803)
+
+[node name="CollisionShape2D" parent="jeepEnemigo2" index="2"]
+position = Vector2(-58.2592, -53.071)
+scale = Vector2(0.96, 1)
+
 [editable path="tanqueEnemigo2"]
+[editable path="tanqueEnemigo"]
+[editable path="jeep"]
+[editable path="jeep2"]
+[editable path="jeepEnemigo"]
+[editable path="jeepEnemigo2"]

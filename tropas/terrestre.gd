@@ -7,7 +7,7 @@ var vida: int = 100  # Vida inicial del tanque
 
 # Variables de la bomba
 var velocidad_bomba = 200.0
-@export var alcance_bomba: float = 700.0  # Limite de alcance
+@export var alcance_bomba: float = 900.0  # Limite de alcance
 var potencia_disparo: float = 50.0  # Potencia inicial del disparo
 var poder_destruccion_bomba = 75
 var radio_destruccion_bomba = 50.0
@@ -93,7 +93,7 @@ func lanzar_bomba():
 	var bomba = preload("res://artilleria/bomba.tscn").instantiate()
 	get_tree().current_scene.add_child(bomba)
 	
-	bomba.position = position + Vector2(150, 0).rotated(rotation)
+	bomba.position = position + Vector2(10, 0).rotated(rotation)
 	bomba.rotation = rotation  # Aplica la misma rotación del tanque a la bomba
 	bomba.velocidad = velocidad_bomba
 	bomba.poder_destruccion = poder_destruccion_bomba
