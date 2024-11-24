@@ -7,19 +7,19 @@
 [ext_resource type="Texture2D" uid="uid://dgw7vobmm76kh" path="res://assets/jeep.png" id="5_h8t62"]
 [ext_resource type="Script" path="res://tropas/jee.gd" id="5_tkvje"]
 [ext_resource type="Texture2D" uid="uid://df0vsukluvmmw" path="res://assets/jeep_enemigo.png" id="7_1gasu"]
-[ext_resource type="Script" path="res://tropas/avion.gd" id="8_0p83y"]
-[ext_resource type="Texture2D" uid="uid://4excmi3w2pau" path="res://assets/avion.png" id="8_vpukb"]
+[ext_resource type="Texture2D" uid="uid://4excmi3w2pau" path="res://assets/avion.png" id="8_peoti"]
+[ext_resource type="Script" path="res://tropas/avion.gd" id="8_wrgq5"]
 
 [node name="Node2D" type="Node2D"]
 scale = Vector2(1.02054, 0.392128)
 
 [node name="Sprite2D" parent="." instance=ExtResource("1_1myon")]
-position = Vector2(4.89937, -2.55019)
-scale = Vector2(1.09279, 2.36723)
+position = Vector2(18.8545, -96.9072)
+scale = Vector2(1.07893, 2.17307)
 
 [node name="Sprite2D2" parent="." instance=ExtResource("1_1myon")]
-position = Vector2(-1131.75, 2.55019)
-scale = Vector2(1.093, 2.367)
+position = Vector2(-1141.55, -91.8068)
+scale = Vector2(1.079, 2.173)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("3_ky8b5")
@@ -147,22 +147,17 @@ position = Vector2(-58.2592, -53.071)
 scale = Vector2(0.96, 1)
 
 [node name="avion" parent="." instance=ExtResource("2_ccuho")]
-position = Vector2(207.733, -367.227)
-script = ExtResource("8_0p83y")
+position = Vector2(-1308.13, -624.796)
+rotation = 0.0
+script = ExtResource("8_wrgq5")
 velocidad = 100.0
-alcance = 1300.0
+alcance = 1000.0
 altura_maxima = 2.0
 
 [node name="Tanque" parent="avion" index="0"]
-position = Vector2(-27.715, 21.6389)
-scale = Vector2(0.468024, 0.701268)
-texture = ExtResource("8_vpukb")
-
-[node name="CollisionShape2D" parent="avion/Area2D" index="0"]
-position = Vector2(-25.0517, 13.3009)
-
-[node name="CollisionShape2D" parent="avion" index="2"]
-position = Vector2(-28.4164, 22.9516)
+position = Vector2(-109.584, 24.2267)
+scale = Vector2(0.503419, 0.584594)
+texture = ExtResource("8_peoti")
 
 [editable path="tanqueEnemigo2"]
 [editable path="tanqueEnemigo"]
