@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://d07ymf5p8nbao"]
+
+[ext_resource type="Script" path="res://artilleria/bomba_avion.gd" id="1_emfif"]
+[ext_resource type="Texture2D" uid="uid://dhphnudrsk7vn" path="res://assets/bala_tanque.png" id="2_8wmt6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kucr"]
+size = Vector2(382, 110)
+
+[node name="bomba_avion" type="Area2D"]
+script = ExtResource("1_emfif")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_8wmt6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(176, 1)
+shape = SubResource("RectangleShape2D_0kucr")

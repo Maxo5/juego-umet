@@ -3,7 +3,8 @@
 [ext_resource type="Script" path="res://artilleria/bomba.gd" id="1_hg8dh"]
 [ext_resource type="Texture2D" uid="uid://dhphnudrsk7vn" path="res://assets/bala_tanque.png" id="2_xs8rh"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_205ix"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rn71"]
+size = Vector2(222.373, 63.535)
 
 [node name="bala_tanque_Area2D" type="Area2D"]
 scale = Vector2(0.235435, 0.299048)
@@ -15,4 +16,5 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_xs8rh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_205ix")
+position = Vector2(101.186, 8.35986)
+shape = SubResource("RectangleShape2D_7rn71")

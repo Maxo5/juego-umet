@@ -147,11 +147,11 @@ position = Vector2(-58.2592, -53.071)
 scale = Vector2(0.96, 1)
 
 [node name="avion" parent="." instance=ExtResource("2_ccuho")]
-position = Vector2(207.733, -367.227)
+position = Vector2(185.196, -226.967)
 script = ExtResource("8_0p83y")
-velocidad = 100.0
-alcance = 1300.0
-altura_maxima = 2.0
+velocidad = 250.0
+alcance = 2000.0
+altura_maxima = 4.0
 
 [node name="Tanque" parent="avion" index="0"]
 position = Vector2(-27.715, 21.6389)

@@ -13,8 +13,8 @@ func iniciar_explosion(poder_iniciado):
 	#if sprite:# Reduzco el impacto del poder usando una raíz cuadrada
 		#var escala = base_scale + (max_scale - base_scale) * (poder / 100.0)
 	sprite.scale = Vector2(0.1, 0.1)
-		#print("Escala calculada: ", escala)
-
+# Ajustar z_index para el orden de apilamiento
+	self.z_index = 1  # Asegura que la explosión quede detrás del avión
 	# Reproducir animación
 	var anim_player = $AnimationPlayer
 	if anim_player:
