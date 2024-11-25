@@ -55,8 +55,9 @@ func _on_body_entered(body):
 		if body.is_in_group("tanques") or body.is_in_group("enemigos"):
 			if body != tanque_padre:
 				body.recibir_dano(poder_destruccion)
-
+				lanzar_explosion(position, radio_destruccion, body)  # Pasar el objeto impactado
 	explotar()
+
 
 
 func explotar():
@@ -67,9 +68,15 @@ func explotar():
 
 
 
-func lanzar_explosion(posicion, poder):
+func lanzar_explosion(posicion, poder, objeto_afectado = null):
 	var explosion_scene = preload("res://explosion.tscn").instantiate()
-	explosion_scene.position = posicion
-	get_tree().current_scene.add_child(explosion_scene)
-	# Iniciar la explosión con el poder de la bomba
+	if objeto_afectado != null:
+		# Hacer que la explosión sea hija del tanque o enemigo impactado
+		objeto_afectado.add_child(explosion_scene)
+		explosion_scene.position = Vector2.ZERO  # Centrar la explosión en el objeto
+	else:
+		# Añadir la explosión al árbol principal si no hay un objeto afectado
+		explosion_scene.position = posicion
+		get_tree().current_scene.add_child(explosion_scene)
+	# Iniciar la explosión
 	explosion_scene.iniciar_explosion(poder)

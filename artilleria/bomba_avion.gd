@@ -36,6 +36,7 @@ func _on_body_entered(body):
 	if body.is_in_group("tanques") or body.is_in_group("enemigos"):
 			if body != avion_padre:
 				body.recibir_dano(poder_destruccion)
+				lanzar_explosion(position, radio_destruccion, body)  # Pasar el objeto impactado
 	explotar()
 
 func explotar():
@@ -43,11 +44,14 @@ func explotar():
 	lanzar_explosion(position, poder_destruccion)
 	queue_free()  # Destruye la bomba
 
-func lanzar_explosion(posicion, poder):
+func lanzar_explosion(posicion, poder, objeto_afectado = null):
 	var explosion_scene = preload("res://explosion.tscn").instantiate()
-	explosion_scene.position = posicion
-	get_tree().current_scene.add_child(explosion_scene)
-
-	# Si la explosión tiene una función para iniciar, la llamamos
-	if explosion_scene.has_method("iniciar_explosion"):
-		explosion_scene.iniciar_explosion(poder)
+	if objeto_afectado != null:
+		# Explosión sigue al tanque o enemigo
+		objeto_afectado.add_child(explosion_scene)
+		explosion_scene.position = Vector2.ZERO
+	else:
+		# Explosión independiente en el mundo
+		explosion_scene.position = posicion
+		get_tree().current_scene.add_child(explosion_scene)
+	explosion_scene.iniciar_explosion(poder)

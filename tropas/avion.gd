@@ -1,8 +1,8 @@
 extends "res://tropas/terrestre.gd"
 
 @export var velocidad: float = 250.0
-@export var alcance: float = 2000.0  # Máxima distancia permitida para el avión
-@export var altura_maxima: float = 4.0  # Altura máxima simulada
+@export var alcance: float = 2500.0  # Máxima distancia permitida para el avión
+@export var altura_maxima: float = 5.0  # Altura máxima simulada
 
 # Variables internas
 var distancia_recorrida: float = 0.0
