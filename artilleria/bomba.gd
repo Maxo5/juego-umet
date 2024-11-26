@@ -5,7 +5,7 @@ extends Area2D
 @export var poder_destruccion: int = 50
 @export var radio_destruccion: float = 50.0
 @export var desfase_posicion: float = 10.0  # Ajuste para que la bomba salga un poco adelante
-@export var altura_maxima: float = 1  # Altura máxima simulada
+@export var altura_maxima: float = 10 # Altura máxima simulada
 
 
 # Variables internas
@@ -33,7 +33,7 @@ func _process(delta):
 
 	# Simula la trayectoria parabólica de la bomba
 	var altura_actual = calcular_altura(distancia_recorrida, potencia)
-	set_scale(Vector2(0.1, 0.1) * (1 + altura_actual / altura_maxima))  # Ajusta la escala
+	set_scale(Vector2(0.1, 0.1) * ( + altura_actual / altura_maxima))  # Ajusta la escala
 
 	# Activa colisión cerca del final
 	if distancia_recorrida >= potencia - (radio_destruccion / 2):

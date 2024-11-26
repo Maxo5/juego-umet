@@ -1,6 +1,6 @@
 extends Camera2D
 
-var speed = 200  # Velocidad de movimiento manual de la cámara
+var speed = 800  # Velocidad de movimiento manual de la cámara
 var selected_tank = null  # Tanque seleccionado
 var target = null  # Objeto que la cámara sigue (tanque o bomba)
 @export var follow_smoothness: float = 0.01  # Cuanto menor sea, más suave es el seguimiento

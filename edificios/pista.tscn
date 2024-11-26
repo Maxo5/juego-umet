@@ -1,15 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://b0x7guyuq7yvf"]
 
-[ext_resource type="Texture2D" uid="uid://brulhscsuh5h2" path="res://assets/pista.jpg" id="1_a8sdf"]
+[ext_resource type="Texture2D" uid="uid://dtqu7lbl08ou2" path="res://assets/pista_peque.png" id="1_t085a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1lfu"]
-size = Vector2(596, 592)
+size = Vector2(597, 296)
 
 [node name="pista" type="CharacterBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
-texture = ExtResource("1_a8sdf")
+texture = ExtResource("1_t085a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -1)
 shape = SubResource("RectangleShape2D_m1lfu")

@@ -26,10 +26,10 @@ func _process(delta):
 		elif Input.is_action_just_pressed("lanzar_bomba"):  # Verificar si se presiona la barra espaciadora
 			if en_vuelo:
 				lanzar_bomba()
-	if Input.is_action_pressed("g"):
-		rotation_degrees += velocidad_giro * delta
-	if Input.is_action_pressed("f"):
-		rotation_degrees -= velocidad_giro * delta
+		if Input.is_action_pressed("g"):
+			rotation_degrees += velocidad_giro * delta
+		if Input.is_action_pressed("f"):
+			rotation_degrees -= velocidad_giro * delta
 			
 	if en_vuelo:
 		handle_movement(delta)
@@ -72,6 +72,10 @@ func iniciar_vuelo():
 	distancia_recorrida = 0.0
 	direccion = Vector2(1, 0).rotated(rotation).normalized()
 	print("Vuelo iniciado.")
+	# Reproducir sonido
+	var sonido = $Audio_avion
+	if sonido:
+		sonido.play()
 
 func iniciar_regreso():
 	en_regreso = true

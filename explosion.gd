@@ -20,7 +20,11 @@ func iniciar_explosion(poder_iniciado):
 	if anim_player:
 		anim_player.play("explosion_bomba")
 
-	
+	# Reproducir sonido
+	var sonido = $AudioStreamPlayer2D
+	if sonido:
+		sonido.play()
+
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
