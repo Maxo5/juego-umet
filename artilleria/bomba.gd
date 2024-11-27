@@ -59,7 +59,7 @@ func _on_body_entered(body):
 	explotar()
 
 
-
+#signal bomba_explotada
 func explotar():
 	# Aquí podrías añadir efectos de explosión (sonido, partículas, etc.)
 	emit_signal("bomba_explotada")  # Emitir señal al explotar

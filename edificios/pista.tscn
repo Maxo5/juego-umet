@@ -3,14 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://dtqu7lbl08ou2" path="res://assets/pista_peque.png" id="1_t085a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1lfu"]
-size = Vector2(597, 296)
+size = Vector2(496, 198)
 
 [node name="pista" type="CharacterBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -4)
 rotation = 1.5708
+scale = Vector2(0.670001, 0.831666)
 texture = ExtResource("1_t085a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -1)
+position = Vector2(-1, -4)
 shape = SubResource("RectangleShape2D_m1lfu")

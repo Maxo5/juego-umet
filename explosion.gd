@@ -14,7 +14,7 @@ func iniciar_explosion(poder_iniciado):
 		#var escala = base_scale + (max_scale - base_scale) * (poder / 100.0)
 	sprite.scale = Vector2(0.1, 0.1)
 # Ajustar z_index para el orden de apilamiento
-	self.z_index = 1  # Asegura que la explosión quede detrás del avión
+	self.z_index = 3  # Asegura que la explosión quede detrás del avión
 	# Reproducir animación
 	var anim_player = $AnimationPlayer
 	if anim_player:

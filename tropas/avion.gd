@@ -66,11 +66,13 @@ func calcular_altura(distancia) -> float:
 		return lerp(altura_maxima, 0.0, (distancia_normalizada - 0.5) * 2.0)
 
 func iniciar_vuelo():
+	
 	if en_vuelo:
 		return  # Evitar iniciar vuelo si ya está en vuelo
 	en_vuelo = true
 	distancia_recorrida = 0.0
 	direccion = Vector2(1, 0).rotated(rotation).normalized()
+	z_index = 10
 	print("Vuelo iniciado.")
 	# Reproducir sonido
 	var sonido = $Audio_avion
@@ -97,6 +99,11 @@ func finalizar_vuelo():
 	direccion = Vector2(1, 0).rotated(rotation).normalized()  # Restablece la dirección inicial
 	deselect_tank()
 	print("Vuelo finalizado.")
+	set_scale(Vector2(1, 0.5))  # Restablece la escala inicial
+	
+	var sonido = $Audio_avion
+	if sonido:
+		sonido.stop()
 
 func lanzar_bomba():
 	var bomba = preload("res://artilleria/bomba_avion.tscn").instantiate()
