@@ -44,7 +44,7 @@ func handle_movement(delta):
 
 	# Ajusta la escala para simular la altitud
 	var altura_actual = calcular_altura(distancia_recorrida)
-	set_scale(Vector2(1, 1) * (1 + altura_actual / altura_maxima))
+	set_scale(Vector2(1, 0.5) * (1 + altura_actual / altura_maxima))
 
 	# Verificar si alcanzó el límite o regresó al punto inicial
 	if not en_regreso and distancia_recorrida >= alcance:

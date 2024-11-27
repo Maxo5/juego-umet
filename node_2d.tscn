@@ -13,7 +13,6 @@
 [ext_resource type="AudioStream" uid="uid://c7mhjwg50whsa" path="res://assets/sonidos/big-plane-sound-effect-247601.mp3" id="11_gbqio"]
 
 [node name="Node2D" type="Node2D"]
-scale = Vector2(1.02054, 0.392128)
 
 [node name="Sprite2D" parent="." instance=ExtResource("1_1myon")]
 position = Vector2(4.89937, -2.55019)
@@ -31,7 +30,7 @@ script = ExtResource("3_ky8b5")
 [node name="tanqueEnemigo2" parent="." instance=ExtResource("2_ccuho")]
 position = Vector2(-1626.59, 346.826)
 rotation = -2.53518e-06
-scale = Vector2(0.5, -1)
+scale = Vector2(0.5, 0.5)
 
 [node name="Tanque" parent="tanqueEnemigo2" index="0"]
 position = Vector2(-3.22293, -7.65056)
@@ -46,7 +45,7 @@ position = Vector2(-31.3604, -5.10032)
 [node name="tanqueEnemigo" parent="." instance=ExtResource("2_ccuho")]
 position = Vector2(-1624.63, 178.513)
 rotation = -2.53518e-06
-scale = Vector2(0.5, -1)
+scale = Vector2(0.5, 0.5)
 
 [node name="Tanque" parent="tanqueEnemigo" index="0"]
 position = Vector2(-3.22293, -7.65056)
@@ -60,14 +59,15 @@ position = Vector2(-29.3965, -10.2007)
 
 [node name="tanque" parent="." instance=ExtResource("2_ccuho")]
 position = Vector2(497.776, 181.063)
-scale = Vector2(0.5, 1)
+scale = Vector2(0.5, 0.5)
 
 [node name="tanque2" parent="." instance=ExtResource("2_ccuho")]
 position = Vector2(493.856, 354.476)
-scale = Vector2(0.5, 1)
+scale = Vector2(0.5, 0.5)
 
 [node name="jeep" parent="." instance=ExtResource("2_ccuho")]
 position = Vector2(164.619, 313.673)
+scale = Vector2(1, 0.5)
 script = ExtResource("5_tkvje")
 
 [node name="Tanque" parent="jeep" index="0"]
@@ -88,6 +88,7 @@ scale = Vector2(0.96, 1)
 
 [node name="jeep2" parent="." instance=ExtResource("2_ccuho")]
 position = Vector2(-88.1886, 446.283)
+scale = Vector2(1, 0.5)
 script = ExtResource("5_tkvje")
 
 [node name="Tanque" parent="jeep2" index="0"]
@@ -109,6 +110,7 @@ scale = Vector2(0.96, 1)
 [node name="jeepEnemigo" parent="." instance=ExtResource("2_ccuho")]
 position = Vector2(-1334.59, 527.889)
 rotation = 0.0
+scale = Vector2(1, 0.5)
 script = ExtResource("5_tkvje")
 
 [node name="Tanque" parent="jeepEnemigo" index="0"]
@@ -130,6 +132,7 @@ scale = Vector2(0.96, 1)
 [node name="jeepEnemigo2" parent="." instance=ExtResource("2_ccuho")]
 position = Vector2(-1343.41, 229.517)
 rotation = 0.0
+scale = Vector2(1, 0.5)
 script = ExtResource("5_tkvje")
 
 [node name="Tanque" parent="jeepEnemigo2" index="0"]
@@ -154,6 +157,7 @@ scale = Vector2(0.764831, 1.49103)
 
 [node name="avion" parent="." instance=ExtResource("2_ccuho")]
 position = Vector2(364.513, -433.532)
+scale = Vector2(1, 0.5)
 script = ExtResource("8_0p83y")
 velocidad = 250.0
 alcance = 2500.0
@@ -179,6 +183,7 @@ scale = Vector2(0.764831, 1.49103)
 
 [node name="avion2" parent="." instance=ExtResource("2_ccuho")]
 position = Vector2(363.533, -693.651)
+scale = Vector2(1, 0.5)
 script = ExtResource("8_0p83y")
 velocidad = 250.0
 alcance = 2500.0
@@ -201,6 +206,7 @@ stream = ExtResource("11_gbqio")
 [node name="avion_enemigo" parent="." instance=ExtResource("2_ccuho")]
 position = Vector2(-1566.82, -451.383)
 rotation = 0.0
+scale = Vector2(1, 0.5)
 script = ExtResource("8_0p83y")
 velocidad = 250.0
 alcance = 2500.0
@@ -223,6 +229,7 @@ stream = ExtResource("11_gbqio")
 [node name="avion_enemigo2" parent="." instance=ExtResource("2_ccuho")]
 position = Vector2(-1573.68, -701.302)
 rotation = 0.0
+scale = Vector2(1, 0.5)
 script = ExtResource("8_0p83y")
 velocidad = 250.0
 alcance = 2500.0
@@ -244,11 +251,11 @@ stream = ExtResource("11_gbqio")
 
 [node name="tanque3" parent="." instance=ExtResource("2_ccuho")]
 position = Vector2(16.6579, -81.606)
-scale = Vector2(0.5, 1)
+scale = Vector2(0.5, 0.5)
 
 [node name="tanque4" parent="." instance=ExtResource("2_ccuho")]
 position = Vector2(480.138, -89.2565)
-scale = Vector2(0.5, 1)
+scale = Vector2(0.5, 0.5)
 
 [editable path="tanqueEnemigo2"]
 [editable path="tanqueEnemigo"]
