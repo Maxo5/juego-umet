@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ceuk0ndn2ki4n"]
+
+[ext_resource type="Script" path="res://tropas/tanque.gd" id="1_2yeue"]
+[ext_resource type="Texture2D" uid="uid://bx5w5k0hpgkj0" path="res://assets/tanque.webp" id="1_yhhkf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2ott"]
+size = Vector2(261, 131)
+
+[node name="tanque" type="CharacterBody2D"]
+script = ExtResource("1_2yeue")
+velocidad_giro = null
+
+[node name="Tanque" type="Sprite2D" parent="."]
+position = Vector2(-119, -53)
+scale = Vector2(0.413461, 0.33427)
+texture = ExtResource("1_yhhkf")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-120.5, -55.5)
+shape = SubResource("RectangleShape2D_u2ott")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-120.5, -55.5)
+shape = SubResource("RectangleShape2D_u2ott")

@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://ceuk0ndn2ki4n"]
+
+[ext_resource type="Script" path="res://tropas/terrestre.gd" id="1_2yeue"]
+[ext_resource type="Texture2D" uid="uid://btvsfvxlv2ff0" path="res://assets/tanque.png" id="2_4x5aa"]
+[ext_resource type="AudioStream" uid="uid://buivcp4430k7m" path="res://assets/sonidos/explosion-sound-effect-1-free-on-gamesfxpackscom-241821.mp3" id="3_iamjh"]
+[ext_resource type="AudioStream" uid="uid://12e14beqviye" path="res://assets/sonidos/tank-moving-143104.mp3" id="4_w541s"]
+[ext_resource type="AudioStream" uid="uid://cusejd3ocyxqd" path="res://assets/sonidos/explosion-.mp3" id="5_xs2db"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2ott"]
+size = Vector2(116.724, 150.26)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ex3lr"]
+bg_color = Color(0.901961, 0.14902, 0.317647, 1)
+
+[node name="tanque" type="CharacterBody2D"]
+rotation = 3.14159
+script = ExtResource("1_2yeue")
+
+[node name="Tanque" type="Sprite2D" parent="."]
+scale = Vector2(0.320604, 0.319271)
+texture = ExtResource("2_4x5aa")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(11, 2.00003)
+scale = Vector2(1.65163, 1.00001)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-24.2185, -1.00009)
+scale = Vector2(0.92, 1)
+shape = SubResource("RectangleShape2D_u2ott")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-28, 0.999929)
+scale = Vector2(1.48, 1)
+shape = SubResource("RectangleShape2D_u2ott")
+
+[node name="BarraPotencia" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="BarraPotencia"]
+offset_left = 151.0
+offset_top = 207.0
+offset_right = 255.0
+offset_bottom = 234.0
+scale = Vector2(5.50383, 2.85465)
+theme_override_styles/fill = SubResource("StyleBoxFlat_ex3lr")
+max_value = 1.0
+step = 0.0
+value = 1.0
+
+[node name="AudioDisparo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_iamjh")
+
+[node name="AudioTank" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_w541s")
+parameters/looping = true
+
+[node name="AudioMorir" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_xs2db")

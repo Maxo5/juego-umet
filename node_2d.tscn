@@ -1,0 +1,306 @@
+[gd_scene load_steps=12 format=3 uid="uid://bhyj1nn6carfo"]
+
+[ext_resource type="PackedScene" uid="uid://glmw5ypv60gg" path="res://terrenos/terreno_uno.tscn" id="1_1myon"]
+[ext_resource type="PackedScene" uid="uid://ceuk0ndn2ki4n" path="res://tropas/terrestre.tscn" id="2_ccuho"]
+[ext_resource type="Script" path="res://camera_2d.gd" id="3_ky8b5"]
+[ext_resource type="Texture2D" uid="uid://ckdgofravb1sd" path="res://assets/tanque_enemigo.png" id="4_8wogf"]
+[ext_resource type="Texture2D" uid="uid://dgw7vobmm76kh" path="res://assets/jeep.png" id="5_h8t62"]
+[ext_resource type="Script" path="res://tropas/jee.gd" id="5_tkvje"]
+[ext_resource type="Texture2D" uid="uid://df0vsukluvmmw" path="res://assets/jeep_enemigo.png" id="7_1gasu"]
+[ext_resource type="Script" path="res://tropas/avion.gd" id="8_0p83y"]
+[ext_resource type="PackedScene" uid="uid://b0x7guyuq7yvf" path="res://edificios/pista.tscn" id="8_p5xri"]
+[ext_resource type="Texture2D" uid="uid://4excmi3w2pau" path="res://assets/avion.png" id="8_vpukb"]
+[ext_resource type="AudioStream" uid="uid://c7mhjwg50whsa" path="res://assets/sonidos/big-plane-sound-effect-247601.mp3" id="11_gbqio"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" parent="." instance=ExtResource("1_1myon")]
+position = Vector2(4.89937, -2.55019)
+scale = Vector2(1.09279, 2.36723)
+
+[node name="Sprite2D2" parent="." instance=ExtResource("1_1myon")]
+position = Vector2(-1131.75, 2.55019)
+scale = Vector2(1.093, 2.367)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("3_ky8b5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="tanqueEnemigo2" parent="." instance=ExtResource("2_ccuho")]
+visible = false
+position = Vector2(-1626.59, 346.826)
+rotation = -2.53518e-06
+scale = Vector2(0.5, 0.5)
+
+[node name="Tanque" parent="tanqueEnemigo2" index="0"]
+position = Vector2(-3.22293, -7.65056)
+texture = ExtResource("4_8wogf")
+
+[node name="CollisionShape2D" parent="tanqueEnemigo2/Area2D" index="0"]
+position = Vector2(-24.4609, -9.65043)
+
+[node name="CollisionShape2D" parent="tanqueEnemigo2" index="2"]
+position = Vector2(-31.3604, -5.10032)
+
+[node name="tanqueEnemigo" parent="." instance=ExtResource("2_ccuho")]
+position = Vector2(-1624.63, 178.513)
+rotation = -2.53518e-06
+scale = Vector2(0.5, 0.5)
+
+[node name="Tanque" parent="tanqueEnemigo" index="0"]
+position = Vector2(-3.22293, -7.65056)
+texture = ExtResource("4_8wogf")
+
+[node name="CollisionShape2D" parent="tanqueEnemigo/Area2D" index="0"]
+position = Vector2(-25.6451, -7.1003)
+
+[node name="CollisionShape2D" parent="tanqueEnemigo" index="2"]
+position = Vector2(-29.3965, -10.2007)
+
+[node name="tanque" parent="." instance=ExtResource("2_ccuho")]
+position = Vector2(497.776, 181.063)
+scale = Vector2(0.5, 0.5)
+
+[node name="tanque2" parent="." instance=ExtResource("2_ccuho")]
+position = Vector2(493.856, 354.476)
+scale = Vector2(0.5, 0.5)
+
+[node name="jeep" parent="." instance=ExtResource("2_ccuho")]
+position = Vector2(164.619, 313.673)
+scale = Vector2(1, 0.5)
+script = ExtResource("5_tkvje")
+
+[node name="Tanque" parent="jeep" index="0"]
+position = Vector2(-0.979866, 2.55024)
+scale = Vector2(0.0889644, 0.232086)
+texture = ExtResource("5_h8t62")
+
+[node name="Area2D" parent="jeep" index="1"]
+position = Vector2(22.5371, 10.2009)
+scale = Vector2(0.901939, 1.21299)
+
+[node name="CollisionShape2D" parent="jeep/Area2D" index="0"]
+position = Vector2(-26.3151, -13.803)
+
+[node name="CollisionShape2D" parent="jeep" index="2"]
+position = Vector2(-2.93962, 7.65059)
+scale = Vector2(0.96, 1)
+
+[node name="jeep2" parent="." instance=ExtResource("2_ccuho")]
+position = Vector2(-88.1886, 446.283)
+scale = Vector2(1, 0.5)
+script = ExtResource("5_tkvje")
+
+[node name="Tanque" parent="jeep2" index="0"]
+position = Vector2(-2.93963, 2.55016)
+scale = Vector2(0.0889644, 0.232086)
+texture = ExtResource("5_h8t62")
+
+[node name="Area2D" parent="jeep2" index="1"]
+position = Vector2(22.537, 30.6023)
+scale = Vector2(0.901939, 1.21299)
+
+[node name="CollisionShape2D" parent="jeep2/Area2D" index="0"]
+position = Vector2(-26.3151, -13.803)
+
+[node name="CollisionShape2D" parent="jeep2" index="2"]
+position = Vector2(-9.79877, 15.3011)
+scale = Vector2(0.96, 1)
+
+[node name="jeepEnemigo" parent="." instance=ExtResource("2_ccuho")]
+position = Vector2(-1334.59, 527.889)
+rotation = 0.0
+scale = Vector2(1, 0.5)
+script = ExtResource("5_tkvje")
+
+[node name="Tanque" parent="jeepEnemigo" index="0"]
+position = Vector2(7.83903, -10.2007)
+scale = Vector2(0.0889644, 0.232086)
+texture = ExtResource("7_1gasu")
+
+[node name="Area2D" parent="jeepEnemigo" index="1"]
+position = Vector2(28.4163, 10.2007)
+scale = Vector2(0.901939, 1.21299)
+
+[node name="CollisionShape2D" parent="jeepEnemigo/Area2D" index="0"]
+position = Vector2(-26.3151, -13.803)
+
+[node name="CollisionShape2D" parent="jeepEnemigo" index="2"]
+position = Vector2(9.79868, -7.65058)
+scale = Vector2(0.96, 1)
+
+[node name="jeepEnemigo2" parent="." instance=ExtResource("2_ccuho")]
+position = Vector2(-1343.41, 229.517)
+rotation = 0.0
+scale = Vector2(1, 0.5)
+script = ExtResource("5_tkvje")
+
+[node name="Tanque" parent="jeepEnemigo2" index="0"]
+position = Vector2(0.97982, 8.7738e-05)
+scale = Vector2(0.0889644, 0.232086)
+texture = ExtResource("7_1gasu")
+
+[node name="Area2D" parent="jeepEnemigo2" index="1"]
+position = Vector2(0.979816, 5.10048)
+scale = Vector2(0.901939, 1.21299)
+
+[node name="CollisionShape2D" parent="jeepEnemigo2/Area2D" index="0"]
+position = Vector2(1.08645, -4.20478)
+
+[node name="CollisionShape2D" parent="jeepEnemigo2" index="2"]
+position = Vector2(0.979836, 5.10049)
+scale = Vector2(0.96, 1)
+
+[node name="pista" parent="." instance=ExtResource("8_p5xri")]
+position = Vector2(321.398, -566.142)
+scale = Vector2(0.764831, 1.49103)
+
+[node name="avion" parent="." instance=ExtResource("2_ccuho")]
+position = Vector2(372, -497)
+scale = Vector2(1, 0.5)
+script = ExtResource("8_0p83y")
+velocidad = 250.0
+alcance = 2500.0
+altura_maxima = 5.0
+
+[node name="Tanque" parent="avion" index="0"]
+position = Vector2(11.513, -5.06396)
+scale = Vector2(0.468024, 0.701268)
+texture = ExtResource("8_vpukb")
+
+[node name="Area2D" parent="avion" index="1"]
+position = Vector2(58, -11.9997)
+scale = Vector2(1.65, 1)
+
+[node name="CollisionShape2D" parent="avion/Area2D" index="0"]
+position = Vector2(-25.0517, 13.3009)
+
+[node name="CollisionShape2D" parent="avion" index="2"]
+position = Vector2(19, -3.9999)
+
+[node name="Audio_avion" type="AudioStreamPlayer2D" parent="avion"]
+stream = ExtResource("11_gbqio")
+
+[node name="pista_enemiga" parent="." instance=ExtResource("8_p5xri")]
+position = Vector2(-1454.13, -558.491)
+scale = Vector2(0.764831, 1.49103)
+
+[node name="avion2" parent="." instance=ExtResource("2_ccuho")]
+position = Vector2(338, -638)
+scale = Vector2(1, 0.5)
+script = ExtResource("8_0p83y")
+velocidad = 250.0
+alcance = 2500.0
+altura_maxima = 5.0
+
+[node name="Tanque" parent="avion2" index="0"]
+position = Vector2(-27.715, 21.6389)
+scale = Vector2(0.468024, 0.701268)
+texture = ExtResource("8_vpukb")
+
+[node name="CollisionShape2D" parent="avion2/Area2D" index="0"]
+position = Vector2(-25.0517, 13.3009)
+
+[node name="CollisionShape2D" parent="avion2" index="2"]
+position = Vector2(-28.4164, 22.9516)
+
+[node name="Audio_avion" type="AudioStreamPlayer2D" parent="avion2"]
+stream = ExtResource("11_gbqio")
+
+[node name="avion_enemigo" parent="." instance=ExtResource("2_ccuho")]
+position = Vector2(-1507, -504)
+rotation = 0.0
+scale = Vector2(1, 0.5)
+script = ExtResource("8_0p83y")
+velocidad = 250.0
+alcance = 2500.0
+altura_maxima = 5.0
+
+[node name="Tanque" parent="avion_enemigo" index="0"]
+position = Vector2(-27.715, 21.6389)
+scale = Vector2(0.468024, 0.701268)
+texture = ExtResource("8_vpukb")
+
+[node name="CollisionShape2D" parent="avion_enemigo/Area2D" index="0"]
+position = Vector2(-25.0517, 13.3009)
+
+[node name="CollisionShape2D" parent="avion_enemigo" index="2"]
+position = Vector2(-28.4164, 22.9516)
+
+[node name="Audio_avion" type="AudioStreamPlayer2D" parent="avion_enemigo"]
+stream = ExtResource("11_gbqio")
+
+[node name="avion_enemigo2" parent="." instance=ExtResource("2_ccuho")]
+position = Vector2(-1496, -648)
+rotation = 0.0
+scale = Vector2(1, 0.5)
+script = ExtResource("8_0p83y")
+velocidad = 250.0
+alcance = 2500.0
+altura_maxima = 5.0
+
+[node name="Tanque" parent="avion_enemigo2" index="0"]
+position = Vector2(-27.715, 21.6389)
+scale = Vector2(0.468024, 0.701268)
+texture = ExtResource("8_vpukb")
+
+[node name="CollisionShape2D" parent="avion_enemigo2/Area2D" index="0"]
+position = Vector2(-25.0517, 13.3009)
+
+[node name="CollisionShape2D" parent="avion_enemigo2" index="2"]
+position = Vector2(-28.4164, 22.9516)
+
+[node name="Audio_avion" type="AudioStreamPlayer2D" parent="avion_enemigo2"]
+stream = ExtResource("11_gbqio")
+
+[node name="tanque3" parent="." instance=ExtResource("2_ccuho")]
+position = Vector2(16.6579, -81.606)
+scale = Vector2(0.5, 0.5)
+
+[node name="tanque4" parent="." instance=ExtResource("2_ccuho")]
+position = Vector2(480.138, -89.2565)
+scale = Vector2(0.5, 0.5)
+
+[node name="tanqueEnemigo3" parent="." instance=ExtResource("2_ccuho")]
+position = Vector2(-1096, 60)
+rotation = -2.53518e-06
+scale = Vector2(0.5, 0.5)
+
+[node name="Tanque" parent="tanqueEnemigo3" index="0"]
+position = Vector2(-3.22293, -7.65056)
+texture = ExtResource("4_8wogf")
+
+[node name="CollisionShape2D" parent="tanqueEnemigo3/Area2D" index="0"]
+position = Vector2(-25.6451, -7.1003)
+
+[node name="CollisionShape2D" parent="tanqueEnemigo3" index="2"]
+position = Vector2(-29.3965, -10.2007)
+
+[node name="tanqueEnemigo4" parent="." instance=ExtResource("2_ccuho")]
+position = Vector2(-1511, 402)
+rotation = -2.53518e-06
+scale = Vector2(0.5, 0.5)
+
+[node name="Tanque" parent="tanqueEnemigo4" index="0"]
+position = Vector2(-3.22293, -7.65056)
+texture = ExtResource("4_8wogf")
+
+[node name="CollisionShape2D" parent="tanqueEnemigo4/Area2D" index="0"]
+position = Vector2(-25.6451, -7.1003)
+
+[node name="CollisionShape2D" parent="tanqueEnemigo4" index="2"]
+position = Vector2(-29.3965, -10.2007)
+
+[editable path="tanqueEnemigo2"]
+[editable path="tanqueEnemigo"]
+[editable path="jeep"]
+[editable path="jeep2"]
+[editable path="jeepEnemigo"]
+[editable path="jeepEnemigo2"]
+[editable path="avion"]
+[editable path="avion2"]
+[editable path="avion_enemigo"]
+[editable path="avion_enemigo2"]
+[editable path="tanqueEnemigo3"]
+[editable path="tanqueEnemigo4"]

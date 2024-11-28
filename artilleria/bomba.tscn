@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://byssigamynxqw"]
+
+[ext_resource type="Script" path="res://artilleria/bomba.gd" id="1_hg8dh"]
+[ext_resource type="Texture2D" uid="uid://dhphnudrsk7vn" path="res://assets/bala_tanque.png" id="2_xs8rh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rn71"]
+size = Vector2(222.373, 63.535)
+
+[sub_resource type="Curve" id="Curve_p1yxj"]
+_data = [Vector2(0.0167785, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.00377357), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_h6e10"]
+offsets = PackedFloat32Array(0.153846, 0.346154, 0.676923, 0.853846)
+colors = PackedColorArray(1, 1, 1, 1, 0.279121, 0.279121, 0.279121, 1, 0, 0, 0, 1, 0.0538462, 0.0538462, 0.0538462, 1)
+
+[sub_resource type="Gradient" id="Gradient_r8ti5"]
+offsets = PackedFloat32Array(0.115385, 0.938462)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[node name="bala_tanque_Area2D" type="Area2D"]
+scale = Vector2(0.235435, 0.299048)
+script = ExtResource("1_hg8dh")
+
+[node name="BalaTanque" type="Sprite2D" parent="."]
+position = Vector2(0, 9)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_xs8rh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(101.186, 8.35986)
+shape = SubResource("RectangleShape2D_7rn71")
+
+[node name="particles_humo" type="CPUParticles2D" parent="."]
+amount = 50
+emission_shape = 2
+emission_sphere_radius = 8.7
+spread = 131.75
+gravity = Vector2(0, 0)
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_p1yxj")
+color = Color(0.780392, 0.180392, 0.0941176, 0.14902)
+color_ramp = SubResource("Gradient_h6e10")
+color_initial_ramp = SubResource("Gradient_r8ti5")

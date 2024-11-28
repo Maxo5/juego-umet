@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhyj1nn6carfo"]
+
+[ext_resource type="PackedScene" uid="uid://glmw5ypv60gg" path="res://terrenos/terreno_uno.tscn" id="1_1myon"]
+[ext_resource type="PackedScene" uid="uid://ceuk0ndn2ki4n" path="res://tropas/tanque.tscn" id="2_ccuho"]
+[ext_resource type="Script" path="res://camera_2d.gd" id="3_ky8b5"]
+[ext_resource type="Texture2D" uid="uid://ckdgofravb1sd" path="res://assets/tanque_enemigo.png" id="4_8wogf"]
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2(1.02054, 0.392128)
+
+[node name="Sprite2D" parent="." instance=ExtResource("1_1myon")]
+position = Vector2(-21.5572, 94.357)
+scale = Vector2(1, 1.524)
+
+[node name="Sprite2D2" parent="." instance=ExtResource("1_1myon")]
+position = Vector2(-1100.39, 86.7064)
+scale = Vector2(1, 1.5)
+
+[node name="tanque" parent="." instance=ExtResource("2_ccuho")]
+position = Vector2(-196.954, 40.803)
+scale = Vector2(0.760242, 1.64446)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("3_ky8b5")
+
+[node name="tanque2" parent="." instance=ExtResource("2_ccuho")]
+position = Vector2(409.587, 461.584)
+scale = Vector2(0.725635, 2.12208)
+
+[node name="tanqueEnemigo" parent="." instance=ExtResource("2_ccuho")]
+position = Vector2(-1301.27, 22.9517)
+scale = Vector2(0.608051, 1)
+
+[node name="Tanque" parent="tanqueEnemigo" index="0"]
+position = Vector2(29.0039, 17.8513)
+texture = ExtResource("4_8wogf")
+
+[editable path="tanqueEnemigo"]
