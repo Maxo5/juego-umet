@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmiqo5nse0rna"]
+
+[ext_resource type="Script" path="res://tank.gd" id="1_ngg2i"]
+[ext_resource type="Texture2D" uid="uid://djcrw682piwrp" path="res://icon.svg" id="2_i816t"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ujjew"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i816t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxe58"]
+size = Vector2(104.863, 98.4652)
+
+[node name="Tank" type="Area2D"]
+script = ExtResource("1_ngg2i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(531, 295)
+sprite_frames = SubResource("SpriteFrames_ujjew")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(530.5, 295)
+rotation = -3.14159
+scale = Vector2(1.2111, 1.27964)
+shape = SubResource("RectangleShape2D_dxe58")
